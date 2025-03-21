@@ -1,0 +1,265 @@
+/* Base styles */
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #166088;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --border-color: #ddd;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  color: var(--primary-color);
+}
+
+/* Form styles */
+form {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+#cancel-btn {
+  background-color: #6c757d;
+  margin-left: 0.5rem;
+}
+
+#cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+/* Tasks container */
+.tasks-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filters button {
+  background-color: transparent;
+  color: var(--text-color);
+  margin: 0 0.5rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.filters button.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Task list */
+#task-list {
+  list-style: none;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.task-item:hover {
+  background-color: #f8f9fa;
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.task-details {
+  margin-left: 1rem;
+  flex: 1;
+}
+
+.task-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.task-description {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.completed .task-title {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+/* Checkbox style */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--success-color);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Task actions */
+.task-actions {
+  display: flex;
+}
+
+.edit-btn, .delete-btn {
+  padding: 0.4rem 0.8rem;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.edit-btn {
+  background-color: #17a2b8;
+}
+
+.edit-btn:hover {
+  background-color: #138496;
+}
+
+.delete-btn {
+  background-color: var(--danger-color);
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Summary */
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+}
+
+#clear-completed {
+  background-color: #6c757d;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+/* Utilities */
+.hidden {
+  display: none;
+}
